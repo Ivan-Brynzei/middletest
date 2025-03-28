@@ -8,3 +8,14 @@ def read_text_file(file_path):
     except Exception as e:
         print(f"Error reading file: {e}")
         return ""
+
+def word_frequency(text):
+    words = text.lower().split()
+    freq_dict = {}
+    
+    for word in words:
+        word = word.strip('.,!?():;"\'')
+        if word:
+            freq_dict[word] = freq_dict.get(word, 0) + 1
+            
+    return freq_dict
